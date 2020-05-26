@@ -8,7 +8,9 @@ function App() {
   return (
     <div className="App">
       <Title>Movie Searcher</Title>
-      <SearchForm></SearchForm>
+      <div className="SearchForm-wrapper">
+        <SearchForm></SearchForm>
+      </div>
     </div>
   );
 }
