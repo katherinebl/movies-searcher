@@ -1,11 +1,12 @@
-import React from 'react';
+import React from 'react'; 
+import { Title } from './components/Title'
 import './App.css';
 import 'bulma/css/bulma.css'
 
 function App() {
   return (
     <div className="App">
-      <h2>Movie Searcher</h2>
+      <Title>Movie Searcher</Title>
     </div>
   );
 }
