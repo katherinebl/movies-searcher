@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+const API_KEY = 'a0bcf344';
+
 export class SearchForm extends Component {
   state =  {
     inputMovie: ''
@@ -11,23 +13,30 @@ export class SearchForm extends Component {
 
   _handleSubmit = (e) => {
     e.preventDefault();
-    alert(this.state.inputMovie);
+    const {inputMovie} = this.state;
+
+    fetch(`http://www.omdbapi.com/?apikey=${API_KEY}&s=${inputMovie}`)
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        
+      })
   }
 
   render() {
     return (
       <form onSubmit={this._handleSubmit}>
-        <div class="field has-addons">
-          <div class="control">
+        <div className="field has-addons">
+          <div className="control">
             <input 
-              class="input" 
+              className="input" 
               type="text" 
               placeholder="Search for a movie..."
               onChange={this._handleChange}
             />
           </div>
-          <div class="control">
-            <a class="button is-info">
+          <div className="control">
+            <a className="button is-info">
               Search
             </a>
           </div>
