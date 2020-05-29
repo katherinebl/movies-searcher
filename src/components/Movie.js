@@ -9,29 +9,26 @@ export class Movie extends Component {
   }
 
   render() {
-    const { id ,post, title, year } = this.props;
+    const { poster, title, year } = this.props;
 
     return (
-      <div class="card">
-  <div class="card-image">
-    <figure class="image is-4by3">
-      <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image" />
-    </figure>
-  </div>
-  <div class="card-content">
-    <div class="media">
-      <div class="media-left">
-        <figure class="image is-48x48">
-          <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image" />
-        </figure>
-      </div>
-      <div class="media-content">
-        <p class="title is-4">John Smith</p>
-        <p class="subtitle is-6">@johnsmith</p>
-      </div>
+      <div className="card">
+        <div className="card-image">
+          <figure className="image">
+            <img 
+            src={poster} 
+            alt={title} />
+          </figure>
+        </div>
+        <div className="card-content">
+          <div className="media">
+            <div className="media-content">
+              <p className="title is-4">{title}</p>
+              <p className="subtitle is-6">{year}</p>
+            </div>
+          </div>
+        </div>
     </div>
-  </div>
-</div>
     )
   }
 }
