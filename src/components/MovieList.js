@@ -10,15 +10,22 @@ export class MovieList extends Component {
   render() {
     const { movies } = this.props
 
-    return movies.map(movie => {
-      return (
-      <Movie 
-        key={movie.imdbID}
-        title={movie.Title}
-        year={movie.Year}
-        poster={movie.Poster}
-      />
-     )
-  })
+    return(
+    <div className="MoviesList">
+      {
+        movies.map(movie => {
+          return (
+            <div className="MoviesList-item" key={movie.imdbID}>
+              <Movie        
+                title={movie.Title}
+                year={movie.Year}
+                poster={movie.Poster}
+              />
+            </div>
+         )
+        })
+      }
+    </div>
+  )
   }
 }
