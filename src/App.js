@@ -1,7 +1,7 @@
 import React, { Component } from 'react'; 
 import { Title } from './components/Title'
 import { SearchForm } from './components/SearchForm'
-import { Movie } from './components/Movie'
+import { MovieList } from './components/MovieList'
 
 import './App.css';
 import 'bulma/css/bulma.css'
@@ -11,23 +11,9 @@ class App extends Component {
 
   _handleData = (data) => {
     this.setState({ data })
+    console.log(data);
+    
   }
-
-  _renderData() {
-    const { data } = this.state
-
-    return data.map(movie => {
-      return (
-      <Movie 
-        key={movie.imdbID}
-        title={movie.Title}
-        year={movie.Year}
-        poster={movie.Poster}
-      />
-     )
-  })
-}
-
   render() {
     return (
       <div className="App">
@@ -37,13 +23,12 @@ class App extends Component {
         </div>
         {this.state.data.length === 0
           ? <p>No results</p>
-          : this._renderData()
+          : <MovieList movies={this.state.data} />
         }
       </div>
     );
   }
 }
-
 
 
 export default App;
