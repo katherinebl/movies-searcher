@@ -15,9 +15,9 @@ class App extends Component {
     this.setState({ data, usedSearchBar: true })
   }
 
-  _renderData = () => {
+  _renderData () {
     return this.state.data.length === 0
-      ? <p>No results</p>
+      ? <p>Sorry! <span role="img" aria-label="emoji">😞</span> Results not found!</p>
       : <MovieList movies={this.state.data} />
   }
   render() {
@@ -29,7 +29,7 @@ class App extends Component {
         </div>
         { (this.state.usedSearchBar)
           ? this._renderData()
-          : <small>Use this form to search a movie! ⬆️ </small>
+          : <small>Use this form to search a movie! <span role="img" aria-label="emoji">⬆️</span> </small>
         }
         
       </div>
