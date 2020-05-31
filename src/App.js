@@ -7,12 +7,18 @@ import './App.css';
 import 'bulma/css/bulma.css'
 
 class App extends Component {
-  state = { data: [] }
+  state = { usedSearchBar: false, 
+            data: [] 
+          }
 
   _handleData = (data) => {
-    this.setState({ data })
-    console.log(data);
-    
+    this.setState({ data, usedSearchBar: true })
+  }
+
+  _renderData = () => {
+    return this.state.data.length === 0
+      ? <p>No results</p>
+      : <MovieList movies={this.state.data} />
   }
   render() {
     return (
@@ -21,10 +27,11 @@ class App extends Component {
         <div className="SearchForm-wrapper">
           <SearchForm onData={this._handleData}/>
         </div>
-        {this.state.data.length === 0
-          ? <p>No results</p>
-          : <MovieList movies={this.state.data} />
+        { (this.state.usedSearchBar)
+          ? this._renderData()
+          : <small>Use this form to search a movie! ⬆️ </small>
         }
+        
       </div>
     );
   }
