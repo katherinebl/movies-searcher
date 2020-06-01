@@ -3,6 +3,7 @@ import { Title } from './components/Title'
 import { SearchForm } from './components/SearchForm'
 import { MovieList } from './components/MovieList'
 
+import { Detail } from './pages/Detail'
 import './App.css';
 import 'bulma/css/bulma.css'
 
